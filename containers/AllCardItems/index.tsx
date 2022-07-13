@@ -1,28 +1,11 @@
 import React from 'react';
-import { gql, useQuery } from '@apollo/client';
-import { CardItem } from '../../components';
-import { Lesson } from '../../model/schema';
 import { FlatList } from 'react-native';
 
-const GET_ITEMS = gql`
-  query GetItems {
-    items{
-      author
-      category {
-        id
-        title
-      }
-      content
-      id
-      image
-      title
-    }
-  }
-`
+import { CardItem } from '../../components';
 
-interface LessonData {
-  items: Lesson[]
-}
+import { useQuery } from '@apollo/client';
+import { Lesson } from '../../model/schema';
+import { GET_ITEMS, LessonData } from '../../graphql';
 
 const AllCardItems = () => {
   const {loading, error, data} = useQuery<LessonData>(GET_ITEMS);
