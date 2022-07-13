@@ -1,14 +1,18 @@
 import React from 'react';
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
   useColorScheme,
 } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { CardItem } from './components';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { AllCardItems } from './containers';
 
+const client = new ApolloClient({
+  uri: 'https://tech.z1.digital/graphql',
+  cache: new InMemoryCache(),
+});
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -18,15 +22,12 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-          <CardItem description='Lorem Ipsum' footnote='Lorem Ipsum' image='https://picsum.photos/700' title='Lorem Ipsum' />
-      </ScrollView>
-    </SafeAreaView>
-    
+    <ApolloProvider client={client}>
+      <SafeAreaView style={backgroundStyle}>
+        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+          <AllCardItems />
+      </SafeAreaView>
+    </ApolloProvider>
   );
 };
 
