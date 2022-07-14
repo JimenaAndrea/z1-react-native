@@ -7,8 +7,7 @@ import {
 } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import { AllCardItems } from './containers';
-import { ChipsBar } from './components';
+import { AllCardItems, FilterBar } from './containers';
 
 const client = new ApolloClient({
   uri: 'https://tech.z1.digital/graphql',
@@ -16,7 +15,6 @@ const client = new ApolloClient({
 });
 
 const App = () => {
-  const [chipSelected, setChipSelected] = React.useState<string>('')
   
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -28,10 +26,7 @@ const App = () => {
     <ApolloProvider client={client}>
       <SafeAreaView style={backgroundStyle}>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-          <ChipsBar 
-            labels={['hello', 'world']} 
-            selected={chipSelected} 
-            setSelected={setChipSelected} />
+          <FilterBar />
           <AllCardItems />
       </SafeAreaView>
     </ApolloProvider>
