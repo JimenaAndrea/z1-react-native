@@ -6,8 +6,10 @@ import {
   useColorScheme,
 } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+
+import { AllCardItems, FilterBar } from './containers';
+
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-import { AllCardItems } from './containers';
 
 const client = new ApolloClient({
   uri: 'https://tech.z1.digital/graphql',
@@ -15,6 +17,8 @@ const client = new ApolloClient({
 });
 
 const App = () => {
+  const [categorySelected, setCategorySelected] = React.useState<string>('');
+  
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -25,7 +29,8 @@ const App = () => {
     <ApolloProvider client={client}>
       <SafeAreaView style={backgroundStyle}>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-          <AllCardItems />
+          <FilterBar categorySelected={categorySelected} setCategorySelected={setCategorySelected} />
+          <AllCardItems category={categorySelected} />
       </SafeAreaView>
     </ApolloProvider>
   );
