@@ -1,15 +1,18 @@
-import React from "react";
-import { Props } from "./types";
-import { Card, Paragraph, Text } from "react-native-paper";
+import React from 'react';
+import { Card, Paragraph, Text } from 'react-native-paper';
+
+import { Props } from './types';
+
+import styles from './styles';
 
 const CardItem: React.FC<Props> = ({ description, footnote, image, title }) => {
   return(
-    <Card>
+    <Card style={styles.card}>
       <Card.Cover source={{uri: image}} />
-      <Card.Title title={title} />
+      <Card.Title title={title.toUpperCase()} titleStyle={styles.title} />
       <Card.Content>
-        <Paragraph>{description}</Paragraph>
-        <Text>{footnote}</Text>
+        <Paragraph style={styles.description}>{description}</Paragraph>
+        <Text style={styles.footnote}>{footnote}</Text>
       </Card.Content>
     </Card>
   )
