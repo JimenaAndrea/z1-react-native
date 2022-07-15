@@ -6,6 +6,7 @@ import {
   useColorScheme,
 } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import { Text } from 'react-native-paper';
 
 import { AllCardItems, FilterBar } from './containers';
 
@@ -29,6 +30,7 @@ const App = () => {
     <ApolloProvider client={client}>
       <SafeAreaView style={backgroundStyle}>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+          <Text>Learn</Text>
           <FilterBar categorySelected={categorySelected} setCategorySelected={setCategorySelected} />
           <AllCardItems category={categorySelected} />
       </SafeAreaView>
