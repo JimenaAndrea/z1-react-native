@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create ({
   footer: {
-    height: 150
+    height: 300
   },
 
   grid: {

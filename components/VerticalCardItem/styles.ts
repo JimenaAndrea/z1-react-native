@@ -9,15 +9,17 @@ const styles = StyleSheet.create ({
   },
   title: {
     color: 'gold',
-    fontSize: 18
+    fontSize: 14
   },
   description: {
     color: 'white',
     fontWeight: 'bold',
-    fontSize: 20
+    fontSize: 18,
+    marginTop: -5
   },
   footnote: {
-    color: 'white'
+    color: 'white',
+    marginTop: 3
   }
 })
 

@@ -12,7 +12,7 @@ const HorizontalCardItem: React.FC<Props> = ({ description, footnote, image, tit
       <View style={styles.textContainer}>
         <View>
           <Text style={styles.title}>{title.toUpperCase()}</Text>
-          <Text style={styles.description}>{description}</Text>
+          <Text style={styles.description} numberOfLines={2}>{description}</Text>
         </View>
         <View>
           <Text style={styles.footnote}>{footnote}</Text>
