@@ -3,6 +3,7 @@ import {
   SafeAreaView,
   StatusBar,
   StyleSheet,
+  View
 } from 'react-native';
 import { Text } from 'react-native-paper';
 
@@ -22,15 +23,21 @@ const App = () => {
     <ApolloProvider client={client}>
       <SafeAreaView style={styles.screen}>
         <StatusBar barStyle={'light-content'} backgroundColor={'#3F0259'}/>
+        <View style={styles.workspaceView}>
           <Text style={styles.title}>Learn</Text>
           <FilterBar categorySelected={categorySelected} setCategorySelected={setCategorySelected} />
           <AllCardItems category={categorySelected} />
+        </View>
       </SafeAreaView>
     </ApolloProvider>
   );
 };
 
 const styles = StyleSheet.create({
+  screen: {
+    backgroundColor: '#3F0259'
+  },
+
   title: { 
     fontSize: 30,
     fontWeight:'bold',
@@ -39,8 +46,11 @@ const styles = StyleSheet.create({
     marginTop: 20,
     color: 'white'
   },
-  screen: {
-    backgroundColor: '#3F0259'
+
+  workspaceView: {
+    maxWidth: 1000,
+    alignSelf: 'center',
+    width: '100%'
   }
 });
 

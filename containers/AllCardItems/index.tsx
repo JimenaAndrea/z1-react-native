@@ -56,7 +56,8 @@ const AllCardItems: React.FC<Props> = ({ category }) => {
     <FlatGrid
       data={targetItems? targetItems : []}
       renderItem={cardItems}
-      maxItemsPerRow={category? 1 : 2}
+      itemDimension={category? 300: 150}
+      maxItemsPerRow={category? 2 : 4}
       spacing={10}
       style={styles.grid}
       ListFooterComponent={<View style={styles.footer} />} />

@@ -28,6 +28,7 @@ const ChipsBar: React.FC<Props> = ({ labels, selected, setSelected }) => {
       keyExtractor={item => item}
       horizontal={true}
       showsHorizontalScrollIndicator={false}
+      style={styles.chipsBar}
       ListHeaderComponent={<View style={styles.boundarySeparator} />}
       ItemSeparatorComponent={() => <View style={styles.itemSeparator} />}
       ListFooterComponent={<View style={styles.boundarySeparator} />} />

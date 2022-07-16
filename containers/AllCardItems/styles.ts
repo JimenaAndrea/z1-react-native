@@ -6,7 +6,7 @@ const styles = StyleSheet.create ({
   },
 
   grid: {
-    margin: 5
+    marginHorizontal: 5
   }
 })
 
