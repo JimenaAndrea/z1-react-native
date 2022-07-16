@@ -5,7 +5,7 @@ import { Props } from './types';
 
 import styles from './styles';
 
-const CardItem: React.FC<Props> = ({ description, footnote, image, title }) => {
+const VerticalCardItem: React.FC<Props> = ({ description, footnote, image, title }) => {
   return(
     <Card style={styles.card}>
       <Card.Cover source={{uri: image}} />
@@ -18,4 +18,4 @@ const CardItem: React.FC<Props> = ({ description, footnote, image, title }) => {
   )
 }
 
-export default CardItem;
+export default VerticalCardItem;

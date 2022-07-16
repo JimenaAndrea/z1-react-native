@@ -3,7 +3,7 @@ import { FlatList } from 'react-native';
 
 import { Props } from './types';
 
-import { CardItem, HorizontalCardItem } from '../../components';
+import { VerticalCardItem, HorizontalCardItem } from '../../components';
 
 import { useQuery } from '@apollo/client';
 import { Lesson } from '../../model/schema';
@@ -28,7 +28,7 @@ const AllCardItems: React.FC<Props> = ({ category }) => {
     : data?.items;
 
   const verticalCardItem = ({item} : {item: Lesson}) => (
-    <CardItem
+    <VerticalCardItem
       key={item.id}
       description={item.title}
       footnote={item.author}
