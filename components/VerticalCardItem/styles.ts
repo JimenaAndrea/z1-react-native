@@ -4,7 +4,8 @@ const styles = StyleSheet.create ({
   card: {
     backgroundColor: '#5a0366',
     borderRadius: 20,
-    overflow: 'hidden'
+    overflow: 'hidden',
+    flex: 1
   },
   title: {
     color: 'gold',
