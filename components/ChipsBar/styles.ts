@@ -6,7 +6,8 @@ const styles = StyleSheet.create ({
   chip: {
     borderRadius: 7, 
     justifyContent: 'center',
-    backgroundColor: colors.primary
+    backgroundColor: colors.primary,
+    padding: 1
   },
 
   chipSelected: {
