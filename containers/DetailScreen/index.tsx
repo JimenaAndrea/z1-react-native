@@ -1,18 +1,20 @@
 import React from 'react';
-import { Image, Text, View } from 'react-native';
+import { Image, ScrollView, Text, View} from 'react-native';
 
 import { Props } from './types';
+import styles from './styles';
 
 const DetailScreen: React.FC<Props> = ({ author, category, content, image, title}) => {
   return (
-    <View>
-      <Text>{category}</Text>
-      <Text>{title}</Text>
-      <Text>{author}</Text>
-      <Image source={{ uri: image }} style={{height: 300, width: 300}} />
-      <Text>{content}</Text>
-
-    </View>
+    <ScrollView style={styles.screen}>
+      <View style={styles.textView}>
+        <Text style={styles.category}>{category.toUpperCase()}</Text>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.author}>{author}</Text>
+      </View>
+      <Image source={{ uri: image }} style={styles.image} />
+      <Text style={styles.content}>{content}</Text>
+    </ScrollView>
   )
 }
 
