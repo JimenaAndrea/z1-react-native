@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { Text } from 'react-native-paper';
 
-import { AllCardItems, FilterBar } from './containers';
+import { AllCardItems, DetailScreen, FilterBar } from './containers';
 
 import { colors } from './styles';
 
@@ -25,11 +25,8 @@ const App = () => {
     <ApolloProvider client={client}>
       <SafeAreaView style={styles.screen}>
         <StatusBar barStyle={'light-content'} backgroundColor={colors.background}/>
-        <View style={styles.workspaceView}>
-          <Text style={styles.title}>Learn</Text>
-          <FilterBar categorySelected={categorySelected} setCategorySelected={setCategorySelected} />
-          <AllCardItems category={categorySelected} />
-        </View>
+        <DetailScreen 
+          author={'Ada Lovelace'} category={'Article'} content={'Lorem Ipsum'} image={'https://picsum.photos/700'} title={"Hello World"} />
       </SafeAreaView>
     </ApolloProvider>
   );
@@ -37,7 +34,8 @@ const App = () => {
 
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: colors.background
+    backgroundColor: colors.background,
+    flex: 1
   },
 
   title: { 
