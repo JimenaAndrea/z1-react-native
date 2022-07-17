@@ -9,6 +9,8 @@ import { Text } from 'react-native-paper';
 
 import { AllCardItems, FilterBar } from './containers';
 
+import { colors } from './styles';
+
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
@@ -22,7 +24,7 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <SafeAreaView style={styles.screen}>
-        <StatusBar barStyle={'light-content'} backgroundColor={'#3F0259'}/>
+        <StatusBar barStyle={'light-content'} backgroundColor={colors.background}/>
         <View style={styles.workspaceView}>
           <Text style={styles.title}>Learn</Text>
           <FilterBar categorySelected={categorySelected} setCategorySelected={setCategorySelected} />
@@ -35,7 +37,7 @@ const App = () => {
 
 const styles = StyleSheet.create({
   screen: {
-    backgroundColor: '#3F0259'
+    backgroundColor: colors.background
   },
 
   title: { 
@@ -44,7 +46,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginBottom: 5,
     marginTop: 20,
-    color: 'white'
+    color: colors.onBackground
   },
 
   workspaceView: {

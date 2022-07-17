@@ -14,7 +14,10 @@ const ChipsBar: React.FC<Props> = ({ labels, selected, setSelected }) => {
         {...styles.chip, ...styles.chipSelected} 
         : styles.chip
       }
-      textStyle={styles.chipText}
+      textStyle={selected===item? 
+        {...styles.chipText, ...styles.chipSelectedText} 
+        : styles.chipText
+      }
       onPress={() => setSelected(item)}>
         {item}
     </Chip>

@@ -1,19 +1,25 @@
 import { StyleSheet } from "react-native";
 
+import { colors } from '../../styles';
+
 const styles = StyleSheet.create ({
   chip: {
     borderRadius: 7, 
     justifyContent: 'center',
-    backgroundColor: '#631874'
+    backgroundColor: colors.primary
   },
 
   chipSelected: {
-    backgroundColor: '#ae51b6'
+    backgroundColor: colors.secondary
   },
 
   chipText: {
-    color: 'white', 
+    color: colors.onPrimary, 
     fontWeight: 'bold'
+  },
+
+  chipSelectedText: {
+    color: colors.onSecondary
   },
   
   chipsBar: {

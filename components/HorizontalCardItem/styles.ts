@@ -1,20 +1,22 @@
 import { StyleSheet } from 'react-native';
 
+import { colors } from '../../styles';
+
 const styles = StyleSheet.create ({
   container: {
     flexDirection: 'row',
-    backgroundColor: '#5a0366',
+    backgroundColor: colors.surface,
     borderRadius: 7
   },
 
   description: {
-    color: 'white',
+    color: colors.onSurface,
     fontSize: 18,
     fontWeight: 'bold'
   },
 
   footnote: {
-    color: 'white'
+    color: colors.onSurface
   },
 
   image: {
@@ -32,7 +34,7 @@ const styles = StyleSheet.create ({
   },
   
   title: {
-    color: 'gold',
+    color: colors.accent,
     fontSize: 14,
     marginBottom: 5
   }

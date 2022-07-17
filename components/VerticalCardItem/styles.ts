@@ -1,24 +1,26 @@
 import { StyleSheet } from 'react-native';
 
+import { colors } from '../../styles';
+
 const styles = StyleSheet.create ({
   card: {
-    backgroundColor: '#5a0366',
+    backgroundColor: colors.surface,
     borderRadius: 20,
     overflow: 'hidden',
     flex: 1
   },
   title: {
-    color: 'gold',
+    color: colors.accent,
     fontSize: 14
   },
   description: {
-    color: 'white',
+    color: colors.onSurface,
     fontWeight: 'bold',
     fontSize: 18,
     marginTop: -5
   },
   footnote: {
-    color: 'white',
+    color: colors.onSurface,
     marginTop: 3
   }
 })
