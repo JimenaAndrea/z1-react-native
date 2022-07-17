@@ -1,9 +1,11 @@
 import React from 'react';
-import { FlatList } from 'react-native';
+import { View } from 'react-native';
+import { FlatGrid } from 'react-native-super-grid';
 
 import { Props } from './types';
+import styles from './styles';
 
-import { CardItem } from '../../components';
+import { VerticalCardItem, HorizontalCardItem } from '../../components';
 
 import { useQuery } from '@apollo/client';
 import { Lesson } from '../../model/schema';
@@ -13,6 +15,11 @@ import { GET_ITEMS, LessonData } from '../../graphql';
  * Component that shows a list of card items, one per existing lesson.
  * Also it can show a list of card items, one per existing lesson
  * in a especific category.
+ * 
+ * The list with all the lessons has cards with a vertical layout displayed
+ * in a two column grid.
+ * The list with the lessons in one category has cards with an horizontal
+ * layout displayed in a single column.
  * 
  * Props:
  * - category (optional): the name of the category to filter the lessons by.
@@ -24,19 +31,36 @@ const AllCardItems: React.FC<Props> = ({ category }) => {
     data?.items.filter((item) => item.category.title == category)
     : data?.items;
 
-  const renderItem = ({item} : {item: Lesson}) => (
-    <CardItem
+  const verticalCardItem = ({item} : {item: Lesson}) => (
+    <VerticalCardItem
       key={item.id}
       description={item.title}
       footnote={item.author}
       image={item.image}
       title={item.category.title} />
   )
+  const horizontalCardItem = ({item} : {item: Lesson}) => (
+    <HorizontalCardItem
+      key={item.id}
+      description={item.title}
+      footnote={item.author}
+      image={item.image}
+      title={item.category.title} />
+  )
+  const cardItems = category?
+  horizontalCardItem
+  : verticalCardItem
+  
 
   return (
-    <FlatList
-      data={targetItems}
-      renderItem={renderItem} />
+    <FlatGrid
+      data={targetItems? targetItems : []}
+      renderItem={cardItems}
+      itemDimension={category? 300: 150}
+      maxItemsPerRow={category? 2 : 4}
+      spacing={10}
+      style={styles.grid}
+      ListFooterComponent={<View style={styles.footer} />} />
   )
 }
 
