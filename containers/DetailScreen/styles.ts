@@ -24,9 +24,17 @@ const styles = StyleSheet.create({
     borderRadius: 7,
   },
 
-  screen: {
+  contentView: {
+    backgroundColor: colors.background,
+    maxWidth: 1000,
+    alignSelf: "center",
+    width: "100%"
+  },
+
+  containerView: {
     backgroundColor: colors.background,
     paddingHorizontal: 20,
+    paddingTop: 10,
   },
 
   textView: {

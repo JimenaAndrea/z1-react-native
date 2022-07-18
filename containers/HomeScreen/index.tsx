@@ -9,13 +9,15 @@ const HomeScreen = () => {
   const [categorySelected, setCategorySelected] = React.useState<string>("");
 
   return (
-    <View style={styles.workspaceView}>
-      <Text style={styles.title}>Learn</Text>
-      <FilterBar
-        categorySelected={categorySelected}
-        setCategorySelected={setCategorySelected}
-      />
-      <AllCardItems category={categorySelected} />
+    <View style={styles.containerView}>
+      <View style={styles.contentView}>
+        <Text style={styles.title}>Learn</Text>
+        <FilterBar
+          categorySelected={categorySelected}
+          setCategorySelected={setCategorySelected}
+        />
+        <AllCardItems category={categorySelected} />
+      </View>
     </View>
   );
 };

@@ -15,19 +15,21 @@ const DetailScreen: React.FC = () => {
   const lesson = route.params.lesson;
 
   return (
-    <ScrollView style={styles.screen}>
-      <Pressable onPress={() => navigation.goBack()} hitSlop={10}>
-        <EvilIcons name={"close"} color={colors.onBackground} size={25} />
-      </Pressable>
-      <View style={styles.textView}>
-        <Text style={styles.category}>
-          {lesson.category.title.toUpperCase()}
-        </Text>
-        <Text style={styles.title}>{lesson.title}</Text>
-        <Text style={styles.author}>{lesson.author}</Text>
+    <ScrollView style={styles.containerView}>
+      <View style={styles.contentView}>
+        <Pressable onPress={() => navigation.goBack()} hitSlop={10}>
+          <EvilIcons name={"close"} color={colors.onBackground} size={25} />
+        </Pressable>
+        <View style={styles.textView}>
+          <Text style={styles.category}>
+            {lesson.category.title.toUpperCase()}
+          </Text>
+          <Text style={styles.title}>{lesson.title}</Text>
+          <Text style={styles.author}>{lesson.author}</Text>
+        </View>
+        <Image source={{ uri: lesson.image }} style={styles.image} />
+        <Text style={styles.content}>{lesson.content}</Text>
       </View>
-      <Image source={{ uri: lesson.image }} style={styles.image} />
-      <Text style={styles.content}>{lesson.content}</Text>
     </ScrollView>
   );
 };

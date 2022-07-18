@@ -12,12 +12,16 @@ const styles = StyleSheet.create({
     color: colors.onBackground,
   },
 
-  workspaceView: {
+  contentView: {
     maxWidth: 1000,
     alignSelf: "center",
     width: "100%",
     backgroundColor: colors.background,
   },
+
+  containerView: {
+    backgroundColor: colors.background,
+  }
 });
 
 export default styles;
