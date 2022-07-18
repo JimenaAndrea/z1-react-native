@@ -4,7 +4,8 @@ import { FlatGrid } from 'react-native-super-grid';
 
 import { useNavigation } from '@react-navigation/native';
 
-import { NavigationProp, Props } from './types';
+import { Props } from './types';
+import { NavigationProp } from '../../model';
 
 import styles from './styles';
 

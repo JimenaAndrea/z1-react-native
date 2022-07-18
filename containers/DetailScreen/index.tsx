@@ -1,18 +1,25 @@
 import React from 'react';
-import { Image, ScrollView, Text, View} from 'react-native';
-import { useRoute } from '@react-navigation/native';
+import { Image, Pressable, ScrollView, Text, View} from 'react-native';
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
+
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 import { DetailScreenRouteProp } from './types';
+import { NavigationProp } from '../../model';
 import styles from './styles';
+import { colors } from '../../styles';
 
 
 const DetailScreen: React.FC = () => {
-
+  const navigation = useNavigation<NavigationProp>();
   const route = useRoute<DetailScreenRouteProp>()
   const lesson = route.params.lesson
 
   return (
     <ScrollView style={styles.screen}>
+      <Pressable onPress={() => navigation.goBack()} hitSlop={10}>
+        <EvilIcons name={'close'} color={colors.onBackground} size={25} />
+      </Pressable>
       <View style={styles.textView}>
         <Text style={styles.category}>{lesson.category.title.toUpperCase()}</Text>
         <Text style={styles.title}>{lesson.title}</Text>

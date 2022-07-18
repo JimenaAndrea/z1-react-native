@@ -2,13 +2,12 @@ import React from 'react';
 import {
   SafeAreaView,
   StatusBar,
-  StyleSheet,
-  View
+  StyleSheet
 } from 'react-native';
 
 import { DetailScreen, HomeScreen } from './containers';
 
-import { Lesson } from './model';
+import { StackProps } from './model';
 
 import { colors } from './styles';
 
@@ -22,10 +21,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-export type StackProps = {
-  Home: undefined;
-  Details: { lesson: Lesson };
-}
 const Stack = createNativeStackNavigator<StackProps>();
 
 const App = () => {
