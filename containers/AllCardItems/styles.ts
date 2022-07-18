@@ -1,13 +1,13 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
   footer: {
-    height: 300
+    height: 300,
   },
 
   grid: {
-    marginHorizontal: 5
-  }
-})
+    marginHorizontal: 5,
+  },
+});
 
 export default styles;

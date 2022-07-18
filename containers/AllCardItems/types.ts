@@ -1,3 +1,3 @@
 export interface Props {
-  category?: string
+  category?: string;
 }

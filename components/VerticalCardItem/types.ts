@@ -4,4 +4,4 @@ export type Props = {
   image: string;
   onPress: () => void;
   title: string;
-}
+};
