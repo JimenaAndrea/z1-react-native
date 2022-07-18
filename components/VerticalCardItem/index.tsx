@@ -6,9 +6,9 @@ import { Props } from './types';
 
 import styles from './styles';
 
-const VerticalCardItem: React.FC<Props> = ({ description, footnote, image, title }) => {
+const VerticalCardItem: React.FC<Props> = ({ description, footnote, image, onPress, title }) => {
   return(
-    <Card style={styles.card}>
+    <Card style={styles.card} onPress={onPress}>
       <Image source={{uri: image}} style={{aspectRatio: 3/2}}/>
       <Card.Title title={title.toUpperCase()} titleStyle={styles.title} />
       <Card.Content>
