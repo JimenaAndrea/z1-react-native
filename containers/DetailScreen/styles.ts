@@ -26,7 +26,8 @@ const styles = StyleSheet.create ({
   },
 
   screen: {
-    marginHorizontal: 20
+    backgroundColor: colors.background,
+    paddingHorizontal: 20,
   },
 
   textView: {
