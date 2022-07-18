@@ -5,29 +5,41 @@ import {
   StyleSheet,
   View
 } from 'react-native';
-import { Text } from 'react-native-paper';
 
-import { AllCardItems, DetailScreen, FilterBar } from './containers';
+import { DetailScreen, HomeScreen } from './containers';
+
+import { Lesson } from './model';
 
 import { colors } from './styles';
 
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const client = new ApolloClient({
   uri: 'https://tech.z1.digital/graphql',
   cache: new InMemoryCache(),
 });
 
-const App = () => {
-  const [categorySelected, setCategorySelected] = React.useState<string>('');
+export type StackProps = {
+  Home: undefined;
+  Details: { lesson: Lesson };
+}
+const Stack = createNativeStackNavigator<StackProps>();
 
+const App = () => {
   return (
     <ApolloProvider client={client}>
-      <SafeAreaView style={styles.screen}>
-        <StatusBar barStyle={'light-content'} backgroundColor={colors.background}/>
-        <DetailScreen 
-          author={'Ada Lovelace'} category={'Article'} content={'Lorem Ipsum'} image={'https://picsum.photos/700'} title={"Hello World"} />
-      </SafeAreaView>
+      <NavigationContainer>
+        <SafeAreaView style={styles.screen}>
+          <StatusBar barStyle={'light-content'} backgroundColor={colors.background}/>
+          <Stack.Navigator initialRouteName='Home' screenOptions={{ headerShown: false }}>
+            <Stack.Screen name='Home' component={HomeScreen} />
+            <Stack.Screen name='Details' component={DetailScreen} />
+          </Stack.Navigator>
+        </SafeAreaView>
+      </NavigationContainer>
     </ApolloProvider>
   );
 };
@@ -36,21 +48,6 @@ const styles = StyleSheet.create({
   screen: {
     backgroundColor: colors.background,
     flex: 1
-  },
-
-  title: { 
-    fontSize: 30,
-    fontWeight:'bold',
-    alignSelf: 'center',
-    marginBottom: 5,
-    marginTop: 20,
-    color: colors.onBackground
-  },
-
-  workspaceView: {
-    maxWidth: 1000,
-    alignSelf: 'center',
-    width: '100%'
   }
 });
 

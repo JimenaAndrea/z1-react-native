@@ -1,7 +1,4 @@
-export interface Props {
-  author: string;
-  category: string;
-  content: string;
-  image: string;
-  title: string;
-}
+import { RouteProp } from '@react-navigation/native';
+import type { StackProps } from '../../App';
+
+export type DetailScreenRouteProp = RouteProp<StackProps, 'Details'>

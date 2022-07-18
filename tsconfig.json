@@ -7,5 +7,5 @@
     /* Completeness */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
-  "include": ["components/**/*", "containers/**/*", "model/*"]
+  "include": ["App.tsx", "components/**/*", "containers/**/*", "model/*"]
 }
