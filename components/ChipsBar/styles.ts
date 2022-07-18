@@ -1,39 +1,39 @@
 import { StyleSheet } from "react-native";
 
-import { colors } from '../../styles';
+import { colors } from "../../styles";
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
   chip: {
-    borderRadius: 7, 
-    justifyContent: 'center',
+    borderRadius: 7,
+    justifyContent: "center",
     backgroundColor: colors.primary,
-    padding: 1
+    padding: 1,
   },
 
   chipSelected: {
-    backgroundColor: colors.secondary
+    backgroundColor: colors.secondary,
   },
 
   chipText: {
-    color: colors.onPrimary, 
-    fontWeight: 'bold'
+    color: colors.onPrimary,
+    fontWeight: "bold",
   },
 
   chipSelectedText: {
-    color: colors.onSecondary
+    color: colors.onSecondary,
   },
-  
+
   chipsBar: {
-    marginVertical: 10
+    marginVertical: 10,
   },
 
   itemSeparator: {
-    width: 10
+    width: 10,
   },
 
   boundarySeparator: {
-    width: 15
-  }
-})
+    width: 15,
+  },
+});
 
 export default styles;

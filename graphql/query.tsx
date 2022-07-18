@@ -1,10 +1,9 @@
-import { gql } from '@apollo/client';
-import { Lesson } from '../model';
-
+import { gql } from "@apollo/client";
+import { Lesson } from "../model";
 
 export const GET_ITEMS = gql`
   query GetItems {
-    items{
+    items {
       author
       category {
         id
@@ -16,8 +15,8 @@ export const GET_ITEMS = gql`
       title
     }
   }
-`
+`;
 
 export interface LessonData {
-  items: Lesson[]
+  items: Lesson[];
 }

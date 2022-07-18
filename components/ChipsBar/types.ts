@@ -1,6 +1,5 @@
 export interface Props {
-  labels: string[]
-  selected: string
-  setSelected: (label: string) => void
-  
+  labels: string[];
+  selected: string;
+  setSelected: (label: string) => void;
 }
